@@ -1,4 +1,4 @@
-INCLUDE "../../utils/hardware.inc"
+INCLUDE "hardware.inc"
 INCLUDE "src/main/utils/macros/text-macros.inc"
 
 SECTION "TitleScreenState", ROM0

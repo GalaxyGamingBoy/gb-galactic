@@ -1,4 +1,4 @@
-INCLUDE "src/main/utils/hardware.inc"
+INCLUDE "hardware.inc"
 
 SECTION "GameVars", WRAM0
 wLastKeys:: db

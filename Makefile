@@ -21,9 +21,8 @@ $(name).gb: $(deps)
 %.o: %.asm
 	$(RGBASM) -L -o $@ $^
 	
-hardware.inc:
-	echo "hardware.inc not found, downloading..."
-	wget https://raw.githubusercontent.com/gbdev/hardware.inc/master/hardware.inc -D src/main/utils
+hardware:
+	wget https://raw.githubusercontent.com/gbdev/hardware.inc/master/hardware.inc
 
 gfx:
 	python3 gfx.py
@@ -33,4 +32,4 @@ clean:
 	rm $(deps) src/gen/$(name).gb
 
 run: $(name).gb
-	Emulicious $(name).gb
+	Emulicious ./src/gen/$(name).gb
