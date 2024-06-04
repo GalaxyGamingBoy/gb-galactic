@@ -26,7 +26,7 @@ EntryPoint:
     ld [rLCDC], a
 
     ; Load and Init Screen
-    ; call LoadTextFontIntoVRAM
+    call LoadTextFontIntoVRAM
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON | LCDCF_OBJ16 | LCDCF_WINON | LCDCF_WIN9C00
     ld [rLCDC], a
 
@@ -63,9 +63,9 @@ NextGameState::
     ; call z, InitStoryState
 
     ; ; Menu
-    ; ld a, [wGameState]
-    ; and a
-    ; call z, InitTitleScreenState
+    ld a, [wGameState]
+    and a
+    call z, InitTitleScreenState
 
     ; ; Update next state
     ; ld a, [wGameState]
@@ -76,4 +76,4 @@ NextGameState::
     ; cp 1 ; Story
     ; jp z, UpdateStoryState
 
-    ; jp UpdateTitleScreenState ; Menu
+    jp UpdateTitleScreenState ; Menu

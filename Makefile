@@ -1,8 +1,15 @@
 name := galactic-armada
-deps := src/$(name).o \
-		libs/sprobj.o \
-		src/main/utils/vblank.o \
-		src/main/states/title-screen/title-screen-state.o
+
+src := src/main/utils/vblank.o \
+		src/main/utils/text.o \
+		src/main/utils/memory.o \
+		src/main/utils/input.o \
+		src/main/states/title-screen/title-screen-state.o 
+
+libs := libs/sprobj.o \
+		libs/input.o
+
+deps := src/$(name).o $(libs) $(src)
 
 title := Galactic Armada
 licensee := MM
@@ -29,7 +36,7 @@ gfx:
 
 clean:
 	rm -r src/gen/
-	rm $(deps) src/gen/$(name).gb
+	rm $(deps)
 
 run: $(name).gb
 	Emulicious ./src/gen/$(name).gb
