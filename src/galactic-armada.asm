@@ -36,7 +36,7 @@ EntryPoint:
 
 NextGameState::
     call WaitForOneVBlank
-    ; call ClearBackground
+    call ClearBackground
 
     ; Turn LCD off
     xor a
@@ -57,23 +57,23 @@ NextGameState::
     ; cp 2
     ; call z, InitGameplayState
 
-    ; ; Story
-    ; ld a, [wGameState]
-    ; cp 1
-    ; call z, InitStoryState
-
-    ; ; Menu
+    ; Story
     ld a, [wGameState]
-    and a
+    cp 1
+    call z, InitStoryState
+
+    ; Menu
+    ld a, [wGameState]
+    cp 0
     call z, InitTitleScreenState
 
     ; ; Update next state
-    ; ld a, [wGameState]
+    ld a, [wGameState]
 
     ; cp 2 ; Gameplay
     ; jp z, UpdateGameplayState
 
-    ; cp 1 ; Story
-    ; jp z, UpdateStoryState
+    cp 1 ; Story
+    jp z, UpdateStoryState
 
     jp UpdateTitleScreenState ; Menu

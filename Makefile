@@ -4,7 +4,9 @@ src := src/main/utils/vblank.o \
 		src/main/utils/text.o \
 		src/main/utils/memory.o \
 		src/main/utils/input.o \
-		src/main/states/title-screen/title-screen-state.o 
+		src/main/utils/background.o \
+		src/main/states/title-screen/title-screen-state.o \
+		src/main/states/story/story-state.o
 
 libs := libs/sprobj.o \
 		libs/input.o

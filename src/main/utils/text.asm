@@ -16,10 +16,26 @@ DrawTextTilesLoop::
     cp 255
     ret z
 
-    ld a, [hl]
+    ld a, [hli]
     ld [de], a
 
-    inc hl
     inc de
 
     jp DrawTextTilesLoop
+
+; Draws text. `de`: Destination Location, `hl`: Text to copy
+DrawText_WithTypewriter::
+    ld a, 3
+    ld [wVBlankCount], a
+    call WaitForVBlankFunc
+
+    ld a, [hl]
+    cp 255
+    ret z
+
+    ld a, [hli]
+    ld [de], a
+
+    inc de
+    
+    jp DrawText_WithTypewriter
