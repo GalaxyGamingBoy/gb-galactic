@@ -10,6 +10,7 @@ LoadTextFontIntoVRAM::
 
     jp CopyDEIntoMemoryAtHL
 
+; Draws text. `de`: Destination Location, `hl`: Text to copy
 DrawTextTilesLoop::
     ld a, [hl]
     cp 255
