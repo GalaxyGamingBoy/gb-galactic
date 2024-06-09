@@ -51,3 +51,32 @@ InitGameplayState::
     ret
 
 UpdateGameplayState::
+    ld a, [wCurKeys]
+    ld [wLastKeys], a
+    call Input
+
+    call ResetShadowOAM
+    call ResetOAMSpriteAddress
+
+    ; call UpdatePlayer
+    ; call UpdateEnemies
+    ; call UpdateBullets
+    ; call UpdateBackground
+
+    call ClearRemainingSprites
+
+    ld a, [wLives]
+    cp 250
+    jp nc, EndGameplay
+
+    call WaitForOneVBlank
+    ld a, HIGH(wShadowOAM)
+    call hOAMDMA
+    call WaitForOneVBlank
+
+    jp UpdateGameplayState
+
+EndGameplay:
+    ld a, 0
+    ld [wGameState], a
+    jp NextGameState
