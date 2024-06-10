@@ -21,12 +21,12 @@ InitGameplayState::
     ld [wScore + 4], a
     ld [wScore + 5], a
 
-    ; call InitBackground // TODO
-    ; call InitPlayer // TODO
-    ; call InitBullets // TODO
-    ; call InitEnemies // TODO
+    call InitBackground ; // TODO
+    ; call InitPlayer ; // TODO
+    ; call InitBullets ; // TODO
+    ; call InitEnemies ; // TODO
 
-    ; call InitStatInterrupts // TODO
+    ; call InitStatInterrupts ; // TODO
 
     ld de, $9C00
     ld hl, wScoreText
@@ -36,8 +36,8 @@ InitGameplayState::
     ld hl, wLivesText
     call DrawTextTilesLoop
 
-    ; call DrawScore // TODO
-    ; call DrawLives // TODO
+    ; call DrawScore ; // TODO
+    ; call DrawLives ; // TODO
 
     xor a
     ld [rWY], a
@@ -58,10 +58,10 @@ UpdateGameplayState::
     call ResetShadowOAM
     call ResetOAMSpriteAddress
 
-    ; call UpdatePlayer // TODO
-    ; call UpdateEnemies // TODO
-    ; call UpdateBullets // TODO
-    ; call UpdateBackground // TODO
+    ; call UpdatePlayer ; // TODO
+    ; call UpdateEnemies ; // TODO
+    ; call UpdateBullets ; // TODO
+    call UpdateBackground  ; // TODO
 
     call ClearRemainingSprites
 

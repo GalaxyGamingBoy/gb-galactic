@@ -38,9 +38,10 @@ ClearRemainingSprites_Loop::
     ld [hli], a
     ld [hld], a
 
-    ld a, l
-    add 4
-    ld l, a
+    ; // TODO: Possible Wasteful Code
+    ; ld a, l
+    ; add 4
+    ; ld l, a
 
     call NextOAMSprite
     jp ClearRemainingSprites_Loop
