@@ -13,14 +13,14 @@ starfieldTileEnd:
 
 InitBackground::
     ld de, starfieldTile
-    ld hl, $9340
+    ld hl, _VRAM + $1340
     ld bc, starfieldTileEnd - starfieldTile
     call CopyDEIntoMemoryAtHL
 
     ld de, starfieldMap
     ld hl, $9800
     ld bc, starfieldMapEnd - starfieldMap
-    call CopyDEIntoMemoryAtHL
+    call CopyDEIntoMemoryAtHL_W52Offset
 
     xor a
     ld [wBackgroundScroll], a
@@ -30,23 +30,23 @@ InitBackground::
 UpdateBackground::
     ld a, [wBackgroundScroll]
     add a, 5
-    ld b, a
+    ld c, a
     ld [wBackgroundScroll], a
 
     ld a, [wBackgroundScroll + 1]
     adc 0
-    ld c, a
+    ld b, a
     ld [wBackgroundScroll + 1], a
 
-    srl c
-    rr b
-    srl c
-    rr b
-    srl c
-    rr b
-    srl c
-    rr b
+    srl b
+    rr c
+    srl b
+    rr c
+    srl b
+    rr c
+    srl b
+    rr c
 
-    ld a, b
+    ld a, c
     ld [rSCY], a
     ret

@@ -47,7 +47,7 @@ NextGameState::
     ld [rWY], a
 
     ; Cleanup
-    ; call DisableInterrupts // TODO
+    call DisableInterrupts
     call ClearAllSprites
 
     ; Init new State

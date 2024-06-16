@@ -21,12 +21,12 @@ InitGameplayState::
     ld [wScore + 4], a
     ld [wScore + 5], a
 
-    call InitBackground ; // TODO
+    call InitBackground
     ; call InitPlayer ; // TODO
     ; call InitBullets ; // TODO
     ; call InitEnemies ; // TODO
 
-    ; call InitStatInterrupts ; // TODO
+    call InitStatInterrupts
 
     ld de, $9C00
     ld hl, wScoreText
@@ -36,8 +36,8 @@ InitGameplayState::
     ld hl, wLivesText
     call DrawTextTilesLoop
 
-    ; call DrawScore ; // TODO
-    ; call DrawLives ; // TODO
+    call DrawScore
+    call DrawLives
 
     xor a
     ld [rWY], a
@@ -61,12 +61,12 @@ UpdateGameplayState::
     ; call UpdatePlayer ; // TODO
     ; call UpdateEnemies ; // TODO
     ; call UpdateBullets ; // TODO
-    call UpdateBackground  ; // TODO
+    call UpdateBackground
 
     call ClearRemainingSprites
 
     ld a, [wLives]
-    cp 250
+    cp 250 ; // TODO:  [wLives] (def: 3) - 250, To not overflow must be 0 - 250 = 250. Maybe value $FC(252) might be more concrete.
     jp nc, EndGameplay
 
     call WaitForOneVBlank
