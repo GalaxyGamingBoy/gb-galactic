@@ -22,7 +22,7 @@ InitGameplayState::
     ld [wScore + 5], a
 
     call InitBackground
-    ; call InitPlayer ; // TODO
+    call InitPlayer
     ; call InitBullets ; // TODO
     ; call InitEnemies ; // TODO
 
@@ -58,7 +58,7 @@ UpdateGameplayState::
     call ResetShadowOAM
     call ResetOAMSpriteAddress
 
-    ; call UpdatePlayer ; // TODO
+    call UpdatePlayer
     ; call UpdateEnemies ; // TODO
     ; call UpdateBullets ; // TODO
     call UpdateBackground

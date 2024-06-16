@@ -12,7 +12,8 @@ src := src/main/utils/vblank.o \
 		src/main/states/gameplay/gameplay-state.o \
 		src/main/states/gameplay/background.o \
 		src/main/states/gameplay/hud.o \
-		src/main/states/gameplay/interrupts.o
+		src/main/states/gameplay/interrupts.o \
+		src/main/states/gameplay/objs/player.o
 
 libs := libs/sprobj.o \
 		libs/input.o

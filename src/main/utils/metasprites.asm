@@ -9,10 +9,10 @@ SECTION "Metasprites", ROM0
 
 ; Draws a metasprite
 ; Registers used:
-; - b: mspr y
-; - c: mspr x
-; - d: mspr tile
-; - e: mspr flag
+; @r8 b: mspr y
+; @r8 c: mspr x
+; @r8 d: mspr tile
+; @r8 e: mspr flag
 DrawMetasprites::
     ; Setup vars
 
