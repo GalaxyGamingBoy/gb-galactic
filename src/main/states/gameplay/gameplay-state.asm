@@ -23,7 +23,7 @@ InitGameplayState::
 
     call InitBackground
     call InitPlayer
-    ; call InitBullets ; // TODO
+    call InitBullets
     ; call InitEnemies ; // TODO
 
     call InitStatInterrupts
