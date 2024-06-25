@@ -189,6 +189,8 @@ UpdateBullets_Loop:
     adc 0
     ld h, a
 
+    jp UpdateBullets_PerBullet
+
 FireNextBullet::
     ld a, [wActiveBulletCounter]
     cp MAX_BULLET_COUNT
