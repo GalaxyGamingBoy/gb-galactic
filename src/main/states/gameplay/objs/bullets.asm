@@ -3,8 +3,8 @@ INCLUDE "src/main/utils/constants.inc"
 
 SECTION "Bullet Vars", WRAM0
 wSpawnBullet: db
-wActiveBulletCounter::
-wUpdateBulletCounter::
+wActiveBulletCounter:: db
+wUpdateBulletCounter:: db
 wBullets:: ds MAX_BULLET_COUNT * PER_BULLET_BYTES_COUNT
 
 SECTION "Bullets", ROM0
@@ -133,8 +133,6 @@ UpdateBullets_PerBullet_Normal:
     ld [hl], a
     ld d, a
 
-    pop hl
-
     srl d
     rr c
     srl d
@@ -146,6 +144,7 @@ UpdateBullets_PerBullet_Normal:
 
     ld a, c
     cp 178 
+    pop hl
     jp nc, UpdateBUllets_DeactivateOutOfBounds
     push hl
 

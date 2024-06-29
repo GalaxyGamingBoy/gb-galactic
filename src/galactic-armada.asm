@@ -51,6 +51,10 @@ NextGameState::
     call ClearAllSprites
 
     ; Init new State
+    IF DBG == 1
+        ld a, 2
+        ld [wGameState], a
+    ENDC
 
     ; Gameplay
     ld a, [wGameState]

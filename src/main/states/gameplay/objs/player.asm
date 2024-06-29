@@ -170,7 +170,7 @@ TryShoot:
     and PADF_A
     ret nz
 
-    ; jp FireNextBullet
+    jp FireNextBullet
 
 ; Move Player
 MoveUp:

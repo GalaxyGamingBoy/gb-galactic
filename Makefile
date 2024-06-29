@@ -24,6 +24,7 @@ deps := src/$(name).o $(libs) $(src)
 title := Galactic Armada
 licensee := MM
 version := 1
+debug := 1
 
 RGBASM := rgbasm
 RGBLINT := rgblink
@@ -36,7 +37,7 @@ $(name).gb: $(deps)
 	$(RGBLINT) -o src/gen/$(name).gb $(deps)
 
 %.o: %.asm
-	$(RGBASM) -L -o $@ $^
+	$(RGBASM) -L -D DBG=$(debug) -o $@ $^
 	
 hardware:
 	wget https://raw.githubusercontent.com/gbdev/hardware.inc/master/hardware.inc

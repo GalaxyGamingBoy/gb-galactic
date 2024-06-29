@@ -60,7 +60,7 @@ UpdateGameplayState::
 
     call UpdatePlayer
     ; call UpdateEnemies ; // TODO
-    ; call UpdateBullets ; // TODO
+    call UpdateBullets
     call UpdateBackground
 
     call ClearRemainingSprites
