@@ -14,10 +14,12 @@ src := src/main/utils/vblank.o \
 		src/main/states/gameplay/hud.o \
 		src/main/states/gameplay/interrupts.o \
 		src/main/states/gameplay/objs/player.o \
-		src/main/states/gameplay/objs/bullets.o
+		src/main/states/gameplay/objs/bullets.o \
+		src/main/states/gameplay/objs/enemies.o
 
 libs := libs/sprobj.o \
-		libs/input.o
+		libs/input.o \
+		libs/rand.o
 
 deps := src/$(name).o $(libs) $(src)
 
@@ -37,7 +39,7 @@ $(name).gb: $(deps)
 	$(RGBLINT) -o src/gen/$(name).gb $(deps)
 
 %.o: %.asm
-	$(RGBASM) -L -D DBG=$(debug) -o $@ $^
+	$(RGBASM) -D DBG=$(debug) -o $@ $^
 	
 hardware:
 	wget https://raw.githubusercontent.com/gbdev/hardware.inc/master/hardware.inc

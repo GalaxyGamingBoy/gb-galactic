@@ -10,6 +10,7 @@ wNextEnemyX: db
 wActiveEnemyCounter:: db
 wUpdateEnemiesCounter: db
 wUpdateEnemiesCurrEnemyAddr:: dw
+wResult: db ; TODO: IMPLEMENT COLLISIONS
 
 wEnemies:: ds MAX_ENEMY_COUNT * PER_ENEMY_BYTES_COUNT
 
@@ -37,7 +38,7 @@ InitEnemies::
     ld hl, wEnemies
 
 InitEnemies_Loop:
-    ld [hl], a
+    ld [hl], 0 ; Set enemy as inactive
 
     ld a, l
     add PER_ENEMY_BYTES_COUNT
@@ -138,8 +139,9 @@ UpdateEnemies_PerEnemy_Update:
     ld b, a
     ld [wCurrEnemyX], a
 
+    ; Load y
     ld a, [hl]
-    add e
+    add ENEMY_MOVE_SPEED
     ld [hli], a
     ld c, a
 
@@ -166,6 +168,9 @@ UpdateEnemies_PerEnemy_CheckPlayerCollision:
     push hl
     ; call CheckCurrentEnemyAgainstBullets ; // TODO
     ; call CheckEnemyPlayerCollision ; // TODO
+    ld a, 0
+    ld [wResult], a
+
     pop hl
 
     ld a, [wResult]

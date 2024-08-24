@@ -24,7 +24,7 @@ InitGameplayState::
     call InitBackground
     call InitPlayer
     call InitBullets
-    ; call InitEnemies ; // TODO
+    call InitEnemies ; // TODO
 
     call InitStatInterrupts
 
@@ -59,7 +59,7 @@ UpdateGameplayState::
     call ResetOAMSpriteAddress
 
     call UpdatePlayer
-    ; call UpdateEnemies ; // TODO
+    call UpdateEnemies ; // TODO
     call UpdateBullets
     call UpdateBackground
 
