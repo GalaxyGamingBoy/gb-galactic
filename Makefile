@@ -7,6 +7,7 @@ src := src/main/utils/vblank.o \
 		src/main/utils/background.o \
 		src/main/utils/sprites.o \
 		src/main/utils/metasprites.o \
+		src/main/utils/collisions.o \
 		src/main/states/title-screen/title-screen-state.o \
 		src/main/states/story/story-state.o \
 		src/main/states/gameplay/gameplay-state.o \

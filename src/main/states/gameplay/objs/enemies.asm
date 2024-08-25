@@ -10,7 +10,6 @@ wNextEnemyX: db
 wActiveEnemyCounter:: db
 wUpdateEnemiesCounter: db
 wUpdateEnemiesCurrEnemyAddr:: dw
-wResult: db ; TODO: IMPLEMENT COLLISIONS
 
 wEnemies:: ds MAX_ENEMY_COUNT * PER_ENEMY_BYTES_COUNT
 
