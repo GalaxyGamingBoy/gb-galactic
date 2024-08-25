@@ -16,7 +16,9 @@ src := src/main/utils/vblank.o \
 		src/main/states/gameplay/interrupts.o \
 		src/main/states/gameplay/objs/player.o \
 		src/main/states/gameplay/objs/bullets.o \
-		src/main/states/gameplay/objs/enemies.o
+		src/main/states/gameplay/objs/enemies.o \
+		src/main/states/gameplay/objs/collisions/enemy-player.o \
+		src/main/states/gameplay/objs/collisions/enemy-bullet.o
 
 libs := libs/sprobj.o \
 		libs/input.o \

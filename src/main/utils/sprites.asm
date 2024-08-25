@@ -2,7 +2,7 @@ INCLUDE "hardware.inc"
 
 SECTION "Sprites Vars", WRAM0
 wLastOAMAddress:: dw
-wSpritesUsed:: db
+; wSpritesUsed:: db
 
 SECTION "Sprites", ROM0
 ClearAllSprites::
@@ -16,8 +16,8 @@ ClearOAMLoop::
     dec b
     jp nz, ClearOAMLoop
     
-    xor a
-    ld [wSpritesUsed], a
+    ; xor a
+    ; ld [wSpritesUsed], a
 
     ld a, HIGH(wShadowOAM)
     jp hOAMDMA
@@ -48,7 +48,7 @@ ClearRemainingSprites_Loop::
 
 ResetOAMSpriteAddress::
     xor a
-    ld [wSpritesUsed], a
+    ; ld [wSpritesUsed], a
 
     ld a, LOW(wShadowOAM)
     ld [wLastOAMAddress], a
@@ -59,15 +59,15 @@ ResetOAMSpriteAddress::
     ret
 
 NextOAMSprite::
-    ld a, [wSpritesUsed]
-    inc a
-    ld [wSpritesUsed], a
+    ; ld a, [wSpritesUsed]
+    ; inc a
+    ; ld [wSpritesUsed], a
 
     ld a, [wLastOAMAddress]
     add sizeof_OAM_ATTRS
     ld [wLastOAMAddress], a
 
-    ld a, HIGH(wShadowOAM)
+    ld a, HIGH(wShadowOAM); TODO: POTENTIAL WASTEFUL CODE
     ld [wLastOAMAddress + 1], a
 
     ret

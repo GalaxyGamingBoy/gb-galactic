@@ -165,11 +165,8 @@ UpdateEnemies_PerEnemy_Update:
 
 UpdateEnemies_PerEnemy_CheckPlayerCollision:
     push hl
-    ; call CheckCurrentEnemyAgainstBullets ; // TODO
-    ; call CheckEnemyPlayerCollision ; // TODO
-    ld a, 0
-    ld [wResult], a
-
+    call CheckCurrentEnemyAgainstBullets
+    call CheckEnemyPlayerCollision
     pop hl
 
     ld a, [wResult]

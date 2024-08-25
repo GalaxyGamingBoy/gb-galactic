@@ -24,7 +24,7 @@ CheckObjPositionDiff::
     jp c, CheckObjPositionDiff_Fail
 
     ld a, e
-    dec d
+    sub d
     cp b
     
     jp nc, CheckObjPositionDiff_Fail

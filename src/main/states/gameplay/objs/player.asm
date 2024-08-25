@@ -162,6 +162,8 @@ DamagePlayer::
     dec a
     ld [wLives], a
 
+    call DrawLives
+
     ret
 
 ; Shoot
