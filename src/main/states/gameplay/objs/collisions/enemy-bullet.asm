@@ -47,18 +47,19 @@ CheckCurrentEnemyAgainstBullets_Check_X_Overlap:
     inc hl
 
     ld a, [hli]
+    add 4
     ld b, a
 
-    push hl ; TODO: POTENTIAL UNUSED PUSH
+    ; push hl ; TODO: POTENTIAL UNUSED PUSH
 
     ld a, b
     ld [wObj1Val], a
 
     ld a, [wCurrEnemyX]
-    add 4
+    add 8
     ld [wObj2Val], a
 
-    ld a, 8
+    ld a, 12
     ld [wSize], a
 
     call CheckObjPositionDiff
@@ -67,12 +68,10 @@ CheckCurrentEnemyAgainstBullets_Check_X_Overlap:
     and a
     jp z, CheckCurrentEnemyAgainstBullets_Check_X_Overlap_Fail
 
-    pop hl
 
     jp CheckCurrentEnemyAgainstBullets_PerBullet_Y_Overlap
 
 CheckCurrentEnemyAgainstBullets_Check_X_Overlap_Fail:
-    pop hl
     pop hl
 
     jp CheckCurrentEnemyAgainstBullets_Loop

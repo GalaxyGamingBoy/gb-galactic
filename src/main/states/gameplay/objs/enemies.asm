@@ -62,7 +62,6 @@ UpdateEnemies::
     ld a, [wActiveEnemyCounter]
 
     or a, b
-    and a, a ; // FIXME: Potential wasteful code
     ret z
 
     xor a

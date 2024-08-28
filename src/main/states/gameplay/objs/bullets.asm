@@ -57,17 +57,14 @@ UpdateBullets::
     ld a, [wActiveBulletCounter]
 
     or a, b
-    cp 0 ; // FIXME: Possibly wasteful code - Z flag should be set from or
     ret z
 
     xor a
     ld [wUpdateBulletCounter], a
 
     ; // FIXME: Possible wasteful code - Might be allowed to do, `ld hl, wBullets`
-    ld a, LOW(wBullets)
-    ld l, a
-    ld a, HIGH(wBullets)
-    ld h, a
+    ld l, LOW(wBullets)
+    ld h, HIGH(wBullets)
 
     jp UpdateBullets_PerBullet
 
@@ -113,7 +110,7 @@ UpdateBullets_PerBullet_SpawnDeactivatedBullet:
     ld a, [wPlayerPositionY]
     ld [hli], a
     ld a, [wPlayerPositionY + 1]
-    ld [hli], a ; // FIXME: [hli] -> [hl]
+    ld [hl], a ; // FIXME: [hli] -> [hl]
 
     pop hl
 UpdateBullets_PerBullet_Normal:

@@ -38,7 +38,6 @@ ClearRemainingSprites_Loop::
     ld [hli], a
     ld [hld], a
 
-    ; // FIXME: Possible Wasteful Code
     ld a, l
     add 4
     ld l, a
@@ -66,8 +65,5 @@ NextOAMSprite::
     ld a, [wLastOAMAddress]
     add sizeof_OAM_ATTRS
     ld [wLastOAMAddress], a
-
-    ld a, HIGH(wShadowOAM); TODO: POTENTIAL WASTEFUL CODE
-    ld [wLastOAMAddress + 1], a
 
     ret

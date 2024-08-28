@@ -29,7 +29,7 @@ deps := src/$(name).o $(libs) $(src)
 title := Galactic Armada
 licensee := MM
 version := 1
-debug := 1
+debug := 0
 
 RGBASM := rgbasm
 RGBLINT := rgblink

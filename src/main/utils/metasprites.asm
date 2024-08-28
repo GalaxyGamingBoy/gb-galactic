@@ -27,7 +27,6 @@ DrawMetasprites::
     ld b, a
 
     ; If y == 128 ret
-    ld a, b ; TODO: POTENTIAL WASTEFUL CODE
     cp 128
     ret z
 
